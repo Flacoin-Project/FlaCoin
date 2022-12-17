@@ -1,0 +1,28 @@
+.pg-estimated-value {
+  display: flex;
+  background: var(--estimated-value-background);
+
+  &__container {
+    margin: 3px auto;
+    padding: 5px;
+    width: 920px;
+
+    .value-container {
+      font-size: 120%;
+      margin-left: var(--gap);
+      vertical-align: middle;
+
+      .value {
+        color: var(--bright-1);
+      }
+
+      .value-sign {
+        color: var(--estimated-value-label-text);
+        padding: 3px;
+        border-radius: 10%;
+        background:  var(--estimated-value-label-background);
+        margin-left: var(--gap);
+      }
+    }
+  }
+}

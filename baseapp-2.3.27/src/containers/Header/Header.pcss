@@ -1,0 +1,203 @@
+header {
+  padding: 0 0 1px;
+}
+
+.pg-header {
+  background-color: var(--header-background-cover);
+  margin: 0 auto;
+
+  .pg-logo__img {
+    height: calc(var(--gap) * 3.666);
+  }
+
+  &__market-selector-toggle {
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px 14px;
+    border: 1px solid var(--trading-header-selector-title);
+    border-radius: 3px;
+    margin-left: 26px;
+    &-value {
+      color: var(--trading-header-selector-title);
+      margin: 0 14px 0 0;
+    }
+  }
+
+  &__logo {
+    img {
+      width: calc(var(--gap) * 19.67);
+      height: calc(var(--gap) * 3.5);
+      vertical-align: middle;
+      border-style: none;
+    }
+  }
+
+  &__location {
+    display: none;
+  }
+
+  &__navbar {
+    background: var(--background-dark);
+    padding-top: 3px;
+    margin-left: 30px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    width: 100%;
+  }
+
+  &__toolbar {
+    display: flex;
+    &-item {
+      margin-left: 40px;
+      display: flex;
+      flex-flow: column;
+      justify-content: flex-end;
+      &:last-child {
+        margin-right: 20px;
+      }
+      &-text {
+        color: var(--profile-grey);
+        text-align: right;
+        margin: 5px 0 0;
+        font-size: calc(var(--font-size) * 0.85);
+      }
+      &-value {
+        font-size: calc(var(--font-size) * 1.16);
+        font-weight: 600;
+        text-align: right;
+        margin: 0;
+        &-positive {
+          color: var(--trading-header-positive);
+        }
+        &-negative {
+          color: var(--trading-header-negative);
+        }
+      }
+    }
+  }
+
+  &__content {
+    align-items: center;
+    box-shadow: 1px 1px 5px rgba(46, 76, 128, 0.2);
+    display: flex;
+    height: calc(var(--gap) * 10.67);
+  }
+
+  &__toggler {
+    display: none;
+    position: absolute;
+    top: 15px;
+    z-index: 11;
+    left: 25px;
+  }
+
+  .pg-container {
+    background: var(--background-dark);
+    justify-content: flex-start;
+    padding: 0 2%;
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .pg-header {
+    position: relative;
+    justify-content: none;
+
+    &__logo {
+      display: none;
+    }
+
+    &__location {
+      display: block;
+      font-size: 18px;
+      text-align: center;
+      text-transform: uppercase;
+      color: var(--color-white);
+      text-decoration: none;
+    }
+
+    &--active {
+      position: static;
+      .pg-header__navbar {
+        display: block;
+        position: fixed;
+        left: 0;
+        background: var(--background-dark);
+        -webkit-animation: slide-right .3s ease-out;
+        -moz-animation: slide-right .3s ease-out;
+      }
+    }
+    &__market-selector-toggle {
+      margin-left: 0;
+      margin-right: 26px;
+      padding: 3px 8px;
+      &-value {
+        margin-right: 7px;
+      }
+    }
+
+    &__navbar {
+      margin-left: 0;
+      min-height: calc(100vh - 56px);
+      top: 0;
+      z-index: 666;
+      max-width: calc(var(--gap) * 33);
+      position: absolute;
+      width: 100%;
+      display: none;
+      transition: all 1s ease;
+      &::after {
+        background: rgba(0, 0, 0, 0.8);
+        width: 100vw;
+        content: '';
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 264px;
+      }
+    }
+
+    &__toggler {
+      cursor: pointer;
+      width: 30px;
+      height: 30px;
+      display: block;
+      &-item {
+        background: var(--navbar-text-color);
+        display: block;
+        width: 30px;
+        height: 3px;
+        border-radius: 5px;
+        margin-bottom: 5px;
+        transition: all 0.2s linear;
+      }
+    }
+  }
+
+  .pg-container {
+    height: 46px;
+    justify-content: center !important;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .pg-container-trading {
+    justify-content: flex-start !important;
+  }
+  .pg-header__market-selector-toggle {
+    margin-left: 26px;
+  }
+}
+
+@-webkit-keyframes slide-right {
+      0% { opacity: 0; -webkit-transform: translateX(-100%); }
+    100% { opacity: 1; -webkit-transform: translateX(0); }
+}
+@-moz-keyframes slide-right {
+      0% { opacity: 0; -moz-transform: translateX(-100%); }
+    100% { opacity: 1; -moz-transform: translateX(0); }
+}

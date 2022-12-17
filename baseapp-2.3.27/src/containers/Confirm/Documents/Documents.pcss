@@ -1,0 +1,259 @@
+.pg-confirm__content-documents {
+  color: var(--base-10);
+  font-size: calc(var(--gap) * 2.33);
+  margin: var(--gap) calc(var(--gap) * 3.4) calc(var(--gap) * 2.5) calc(var(--gap) * 3.4);
+  display: flex;
+  flex-direction: column;
+
+  &-drag {
+    float: right;
+    text-align: left;
+  }
+
+  &-filename {
+    cursor: pointer;
+    text-decoration: none;
+    margin-bottom: calc(var(--gap) * 1.2);
+      &:hover {
+        color: var(--text-muted);
+        text-decoration: underline;
+        text-decoration-color: var(--base-3);
+      }
+      img {
+        margin: 2px;
+        position: absolute;
+      }
+  }
+
+  &-col {
+    display: inline-flex;
+    max-width: 50%;
+    flex: 0 0 50%;
+
+    &-row {
+      display: inline-block;
+      margin-top: calc(var(--gap) * 2);
+      color: var(--kyc-grey);
+
+      fieldset {
+        color: var(--kyc-grey);
+        border-radius: 4px;
+        border: 1px solid var(--kyc-grey);
+        box-sizing: border-box;
+        height: 49px;
+        padding-left: calc(var(--gap) * 2);
+        margin-bottom: calc(var(--gap) * 3);
+        width: 230px;
+      }
+
+      &-text {
+        display: inline-block;
+        font-size: calc(var(--gap) * 2.33);
+        padding-bottom: calc(var(--gap) * 1.2);
+        width: 100%;
+        font-weight: normal;
+      }
+
+      &-content {
+        border-bottom: 1px solid var(--confirm-border-color);
+        font-weight: normal;
+        display: inline-block;
+        position: relative;
+
+        &--focused {
+          color: var(--accent) !important;
+          border: 1px solid var(--accent) !important;
+        }
+
+        legend {
+          background-color: var(--base-bright);
+          position:absolute;
+          top: -8px;
+        }
+
+        input {
+          color: var(--color-white);
+          background: transparent;
+          border: unset;
+          bottom: 0;
+          font-size: calc(var(--gap) * 2);
+          margin-top: 10px;
+          width: 100%;
+          &::placeholder {
+            color: var(--text-muted);
+          }
+        }
+      }
+
+      &-content-2 {
+        display: inline-block;
+        font-size: calc(var(--gap) * 2.33);
+        margin: 0 auto;
+        height: 100%;
+        width: 242px;
+
+        input {
+          border: none;
+          color: var(--dark-color);
+          font-size: calc(var(--gap) * 2.33);
+          outline: none;
+          padding-bottom: calc(var(--gap) * 0.33);
+
+          &::placeholder {
+            color: var(--text-muted);
+          }
+        }
+
+        &-documents {
+          border: 1px dashed var(--kyc-grey);
+          box-sizing: border-box;
+          margin-top: calc(var(--gap) * 1.2);
+          margin-bottom: calc(var(--gap) * 1.2);
+          height: 162px;
+          &-input {
+            height: 0.1px;
+            opacity: 0;
+          	overflow: hidden;
+          	position: absolute;
+            width: 0.1px;
+          	z-index: -1;
+
+            input {
+              width: auto;
+            }
+
+            &:focus {
+              opacity: 0.8
+            }
+          }
+
+          &-label {
+            cursor: pointer;
+            display: flex;
+            justify-content: space-around;
+            margin: 0 auto;
+
+            &:hover, label {
+              cursor: pointer;
+            }
+
+            &-item {
+              font-weight: normal;
+              padding-top: calc(var(--gap) * 2.33);
+              text-align: center;
+
+              .active {
+                color: var(--color-white);
+              }
+
+              .muted {
+                color: var(--text-muted);
+              }
+
+              div {
+                font-size: calc(var(--gap) * 1.7);
+                display: flex;
+                justify-content: center;
+              }
+            }
+          }
+        }
+      }
+
+      &-content-3 {
+        margin-left: 2px;
+        width: calc(var(--big-gap) * 3.81);
+        position: relative;
+
+        .pg-confirm__content-documents-col-row-content-label {
+          position: absolute;
+          margin-left: calc(var(--gap) * 1.42);
+          margin-top: calc(var(--gap) * (-1.33));
+          padding: 0 calc(var(--gap) * 0.33);
+          background-color: var(--base-bright);
+          z-index: 1;
+        }
+        &:focus-within {
+          color: var(--color-blue);
+        }
+        .cr-dropdown {
+          &__input, &__input--open {
+            background-color: var(--base-bright);
+            border: 1px solid var(--kyc-grey);
+            border-radius: 4px;
+            color: var(--kyc-grey);
+            font-size: calc(var(--gap) * 2.33);
+            height: 49px;
+            margin-bottom: calc(var(--gap) * 2.5);
+          }
+          &__input {
+            &-label {
+              text-shadow: 0 0 0 var(--kyc-grey);
+              font-size: calc(var(--gap) * 2);
+              font-weight: var(--font-weight);
+              line-height: calc(var(--gap) * 6.2);
+              margin-left: calc(var(--gap) * 2);
+            }
+            &-icon {
+              top: 0px;
+              right: 0px;
+              cursor: pointer;
+              position: absolute;
+              line-height: calc(var(--gap) * 5.4);
+              margin-right: calc(var(--gap) * 2);
+            }
+          }
+
+          &__input--open {
+            color: var(--backhround-dropdown-text);
+            border-color: var(--color-blue);
+          }
+
+          &__list {
+            background-color: var(--background-dropdown);
+            border: 0px;
+            border-radius: 4px;
+            box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.24), 0px 2px 8px rgba(0, 0, 0, 0.12);
+            color: var(--kyc-grey);
+            margin-top: -18px;
+            max-height: calc(var(--big-gap) * 3.5);
+            overflow-y: auto;
+            padding-bottom: 0;
+            width: calc(var(--big-gap) * 3.83);
+
+            &-item {
+              color: var(--kyc-grey);
+              font-size: calc(var(--gap) * 2.33);
+              font-weight: normal;
+              &-label {
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                margin: auto calc(var(--gap) * 2);
+                font-size: calc(var(--gap) * 2);
+              }
+              &:hover {
+                background-color: var(--background-dropdown-hover);
+                color: var(--background-dropdown-hover-text);
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .react-date-picker {
+    width: 100%;
+
+    &__wrapper {
+      width: 100%;
+    }
+
+    &__inputGroup {
+      &__year {
+        width: calc(var(--gap) * 10) !important;
+      }
+    }
+  }
+}
